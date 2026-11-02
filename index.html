@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Herói das Chamas</title>
+
+  <style>
+    /* Deixa o navegador escolher cores claras ou escuras */
+    :root {
+      color-scheme: light dark;
+      box-sizing: border-box;
+      padding-top: env(safe-area-inset-top, 0px);
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    body {
+      font-family: Georgia, serif;
+      max-width: 32rem;
+      margin: 0 auto;
+      padding: 1.5rem;
+      line-height: 1.6;
+    }
+
+    /* Todos os cômodos começam escondidos... */
+    section {
+      display: none;
+    }
+
+    /* ...e só aparece o cômodo que está no endereço (#sala, #cozinha etc.) */
+    section:target {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- APRESENTAÇÃO DO JOGO (sempre visível) -->
+  <header>
+    <h1>👨‍🚒 Herói das Chamas</h1>
+    <p>
+      Você é um bravo bombeiro. Sua missão é encontrar o cômodo
+      que ainda tem uma pessoa nesta casa em chamas!
+    </p>
+    <p><a href="#rua">🔥 Começar o jogo</a></p>
+    <hr>
+  </header>
+
+  <main>
+
+    <!-- RUA: porta -> sala | janela -> quarto 1 -->
+    <section id="rua">
+      <h2>Rua</h2>
+      <p>🔥 Depressa! Você está na frente da casa. O que você faz?</p>
+      <ul>
+        <li><a href="#sala">Entro pela porta</a></li>
+        <li><a href="#quarto1">Entro pela janela</a></li>
+      </ul>
+    </section>
+
+    <!-- SALA: porta -> rua | porta -> quarto 1 | corredor -->
+    <section id="sala">
+      <h2>Sala</h2>
+      <p>Você está na sala. O que você faz?</p>
+      <ul>
+        <li><a href="#rua">Saio pela porta da frente</a></li>
+        <li><a href="#quarto1">Entro pela porta do quarto</a></li>
+        <li><a href="#corredor">Sigo pelo corredor</a></li>
+      </ul>
+    </section>
+
+    <!-- QUARTO 1: porta -> sala | janela -> rua -->
+    <section id="quarto1">
+      <h2>Quarto 1</h2>
+      <p>Você está no primeiro quarto. O que você faz?</p>
+      <ul>
+        <li><a href="#sala">Saio pela porta</a></li>
+        <li><a href="#rua">Saio pela janela</a></li>
+      </ul>
+    </section>
+
+    <!-- CORREDOR: sala | cozinha -->
+    <section id="corredor">
+      <h2>Corredor</h2>
+      <p>Você está no corredor. O que você faz?</p>
+      <ul>
+        <li><a href="#sala">Vou para a sala</a></li>
+        <li><a href="#cozinha">Vou para a cozinha</a></li>
+      </ul>
+    </section>
+
+    <!-- COZINHA: corredor | porta -> quarto 2 | porta -> banheiro -->
+    <section id="cozinha">
+      <h2>Cozinha</h2>
+      <p>Você está na cozinha. O que você faz?</p>
+      <ul>
+        <li><a href="#corredor">Vou para o corredor</a></li>
+        <li><a href="#quarto2">Entro pela porta da esquerda</a></li>
+        <li><a href="#banheiro">Entro pela porta da direita</a></li>
+      </ul>
+    </section>
+
+    <!-- BANHEIRO: porta -> cozinha -->
+    <section id="banheiro">
+      <h2>Banheiro</h2>
+      <p>Você está no banheiro. O que você faz?</p>
+      <ul>
+        <li><a href="#cozinha">Saio pela porta</a></li>
+      </ul>
+    </section>
+
+    <!-- QUARTO 2: cômodo final, o jogo termina aqui -->
+    <section id="quarto2">
+      <h2>🎉 Quarto 2</h2>
+      <p>
+        <strong>
+          Você encontrou a pessoa e a levou para fora em segurança.
+          Parabéns, o jogo foi concluído com sucesso!
+        </strong>
+      </p>
+      <p><a href="#rua">Jogar novamente</a></p>
+    </section>
+
+  </main>
+
+</body>
+</html>
